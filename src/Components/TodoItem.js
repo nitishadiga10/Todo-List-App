@@ -1,12 +1,18 @@
 import { TdItem, DelButton, Item } from "./StyledItem";
 import propTypes from "prop-types";
+import { useState } from "react";
 
 const TodoItem = ({ item, click, id }) => {
+  const [strikeOut, setStrikeOut] = useState(false);
+
   const deleteHandler = () => {
     click(item);
   };
+  const clickHandler = () => {
+    setStrikeOut((prevState) => !prevState);
+  };
   return (
-    <TdItem>
+    <TdItem onClick={clickHandler} strike={strikeOut}>
       <Item>
         <span>{id + 1}.</span> {item}
       </Item>

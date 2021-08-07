@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   TdList,
   Input,
@@ -20,6 +20,18 @@ const TodoList = () => {
   const clearListHandler = () => {
     setTodoList([]);
   };
+  // const saveList = async () => {
+  //   const url =
+  //     "https://to-do-list-app-96476-default-rtdb.asia-southeast1.firebasedatabase.app/list.json";
+  //   const response = await fetch(url, {
+  //     method: "put",
+  //     body: JSON.stringify(todolist),
+  //   });
+  //   if (!response.ok) {
+  //     alert("Couldn't save todo list onto database");
+  //   }
+  // };
+
   const addItemHandler = (e) => {
     if (todoitem.trim() === "") {
       alert("To-do Item cannot be Empty");
@@ -30,6 +42,7 @@ const TodoList = () => {
       );
     } else {
       setTodoList((prevState) => [...prevState, todoitem]);
+      // saveList();
       setTodoItem("");
     }
   };

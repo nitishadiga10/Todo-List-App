@@ -48,9 +48,14 @@ export const TdItem = styled(Div)`
   flex-direction: row;
   width: 100%;
   padding: 0.5rem;
+  text-decoration: ${(props) => (props.strike ? "line-through" : "none")};
+  background: ${(props) => (props.strike ? "rgb(216, 215, 215)" : "inherit")};
   border-bottom: var(--border);
   span {
     color: var(--main-color);
+  }
+  &:hover {
+    cursor: pointer;
   }
 `;
 
